@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon X Store | Premium Game Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">Moon X</div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <div class="nav-elements" id="nav-elements">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search cards...">
+                    <button id="search-btn">🔍</button>
+                </div>
+
+                <div class="user-actions">
+                    <div id="guest-menu" class="auth-buttons">
+                        <a href="#" class="btn-login" id="btn-login-open">Login</a>
+                        <a href="#" class="btn-register" id="btn-register-open">Sign Up</a>
+                    </div>
+                    
+                    <div id="user-menu" class="auth-buttons" style="display: none;">
+                        <span id="user-greeting" class="user-greeting">Hi, Gamer</span>
+                        <a href="#" class="btn-login" id="btn-logout">Logout</a>
+                    </div>
+
+                    <div class="cart-icon" id="cart-icon">
+                        <span class="icon">🛒</span>
+                        <span id="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div class="cart-items-container" id="cart-items-container">
+            <p class="empty-msg">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="cart-total-amount">0 EGP</span>
+            </div>
+            <button id="btn-checkout" class="btn-checkout">Proceed to Checkout</button>
+            <button id="btn-clear-cart" class="btn-clear-cart" style="margin-top: 10px;">Clear Cart 🗑️</button>
+        </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Complete Order</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="checkout-name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select required>
+                        <option value="fawry">Fawry</option>
+                        <option value="vodafone">Vodafone Cash</option>
+                        <option value="card">Credit Card</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-main" style="width: 100%; margin-top: 15px;">Confirm Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content auth-content">
+            <span class="close-modal auth-close">&times;</span>
+            <h2 id="auth-title">Welcome Back</h2>
+            <form id="auth-form">
+                <div class="form-group" id="name-group" style="display: none;">
+                    <label>Full Name</label>
+                    <input type="text" id="reg-name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="auth-email" placeholder="gamer@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-main" id="auth-submit-btn" style="width: 100%; margin-top: 15px;">Login</button>
+            </form>
+            <p class="auth-switch">
+                <span id="auth-switch-text">Don't have an account?</span> 
+                <a href="#" id="auth-switch-link">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="animate-fade-in">Unleash Your Power</h1>
+            <p class="animate-fade-in delay-1">Instant digital codes for your favorite games at the best prices.</p>
+            <a href="#products" class="btn-main animate-fade-in delay-2">Shop Now</a>
+        </div>
+    </section>
+
+    <main id="products" class="container">
+        <h2 class="section-title">Featured Cards</h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Categories</button>
+            <button class="filter-btn" data-filter="pc">PC Games</button>
+            <button class="filter-btn" data-filter="console">Console Games</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-id="1" data-category="pc">
+                <div class="card-img-container">
+                    <img src="images/valorant-card.png" alt="Valorant 1000 VP" class="product-img">
+                </div>
+                <h3>Valorant 1000 VP</h3>
+                <p class="category">PC Games - Riot</p>
+                <div class="card-footer">
+                    <p class="price" data-price="250">250 EGP</p>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="2" data-category="pc">
+                <div class="card-img-container">
+                    <img src="images/steam-card.png" alt="Steam Gift Card $10" class="product-img">
+                </div>
+                <h3>Steam Gift Card $10</h3>
+                <p class="category">PC Games - Steam</p>
+                <div class="card-footer">
+                    <p class="price" data-price="500">500 EGP</p>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="3" data-category="console">
+                <div class="card-img-container">
+                    <img src="images/psn-card.png" alt="PSN Card $20" class="product-img">
+                </div>
+                <h3>PSN Card $20</h3>
+                <p class="category">Console - PlayStation</p>
+                <div class="card-footer">
+                    <p class="price" data-price="950">950 EGP</p>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-id="4" data-category="console">
+                <div class="card-img-container">
+                    <img src="images/xbox-card.png" alt="Xbox Live $15" class="product-img">
+                </div>
+                <h3>Xbox Live $15</h3>
+                <p class="category">Console - Xbox</p>
+                <div class="card-footer">
+                    <p class="price" data-price="720">720 EGP</p>
+                    <button class="btn-add">Add</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Gamers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Got my Valorant points in literally 2 seconds. Best store ever!"</p>
+                    <h4>- Ahmed K.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Very secure payment and great customer service. Highly recommended."</p>
+                    <h4>- Youssef M.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Cheapest prices for Steam cards in Egypt right now."</p>
+                    <h4>- Omar T.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 - Moon X Store. Premium Game Card Provider.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
